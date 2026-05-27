@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhythm Messengers | Chicago Drumline</title>
+<meta name="description" content="Chicago's premier drumline entertainment group. High-energy percussion performances for corporate events, trade shows, festivals, and private events.">
+<meta property="og:title" content="Rhythm Messengers | Chicago Drumline">
+<meta property="og:description" content="Chicago's premier drumline entertainment group. High-energy percussion performances for corporate events, trade shows, festivals, and private events.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--off-white:#f5f0e8;--red:#d13b1e;--red-dark:#9e2b13;
+  --gold:#e8a020;--muted:#a09a8e;--surface:#141414;--surface2:#1e1c1a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--off-white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0.5rem 3rem;max-height:70px;background:rgba(10,10,10,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-logo{display:block;flex-shrink:0}
+.nav-logo img{width:52px;height:52px;object-fit:contain;object-position:center}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:400;transition:color 0.15s cubic-bezier(0.23,1,0.32,1)}
+.nav-links a.nav-active{color:var(--off-white)}@media (hover: hover) and (pointer: fine){.nav-links a:hover{color:var(--off-white)}}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:0.5rem 1.5rem;border-radius:2px;font-weight:500!important}
+.nav-cta:hover{background:var(--red-dark)!important}
+
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:200}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--off-white);transition:transform 0.3s,opacity 0.3s}
+.nav-hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-hamburger:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.mobile-menu{display:none;position:fixed;inset:0;z-index:175;background:rgba(10,10,10,0.98);flex-direction:column;justify-content:center;align-items:center;gap:0;opacity:0;transition:opacity 0.3s ease}
+.mobile-menu.open{opacity:1}
+.mobile-menu ul{list-style:none;text-align:center;padding:0}
+.mobile-menu ul li{overflow:hidden}
+.mobile-menu ul a{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,10vw,4rem);color:var(--off-white);text-decoration:none;letter-spacing:0.05em;padding:0.4rem 2rem;transition:color 0.15s cubic-bezier(0.23,1,0.32,1)}
+@media (hover: hover) and (pointer: fine){.mobile-menu ul a:hover{color:var(--red)}}
+.mobile-menu .mobile-cta{display:inline-block;margin-top:2rem;background:var(--red);color:#fff;padding:0.9rem 2.5rem;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
+.mobile-menu .mobile-cta:hover{background:var(--red-dark)}
+
+/* HERO */
+.hero{min-height:100dvh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.75) 70%, rgba(10,10,10,0.97) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 3rem 4rem}
+.hero-eyebrow{display:inline-block;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:400;border:1px solid rgba(232,160,32,0.35);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(232,160,32,0.08)}
+.hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,10vw,9rem);line-height:0.9;letter-spacing:0.02em;margin-bottom:1.5rem;max-width:800px;text-wrap:balance}
+.hero-headline .accent{color:var(--red)}
+.hero-sub{font-size:1.05rem;line-height:1.75;color:#d0c8be;max-width:500px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--red);color:#fff;padding:0.9rem 2.25rem;border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1),box-shadow 0.2s cubic-bezier(0.23,1,0.32,1);box-shadow:0 4px 16px rgba(209,59,30,0.25)}
+@media (hover: hover) and (pointer: fine){.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(209,59,30,0.45)}}.btn-primary:active{transform:scale(0.97);transition-duration:160ms}.btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-ghost{color:var(--off-white);padding:0.9rem 2.25rem;border:1px solid rgba(255,255,255,0.3);border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1)}
+@media (hover: hover) and (pointer: fine){.btn-ghost:hover{border-color:rgba(255,255,255,0.7)}}.btn-ghost:active{transform:scale(0.97);transition-duration:160ms}.btn-ghost:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+
+/* VIDEO SECTION */
+.video-section{background:var(--surface);padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.video-left .section-eyebrow{display:inline-block;align-self:flex-start;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;border:1px solid rgba(209,59,30,0.3);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(209,59,30,0.08)}
+.video-left .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1;margin-bottom:1.25rem}
+.video-left p{font-size:0.95rem;line-height:1.8;color:#b0a89e;margin-bottom:1.5rem}
+.video-right{position:relative;border-radius:2px;overflow:hidden;background:#000;aspect-ratio:16/9}
+.video-right video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* SERVICES */
+#services{padding:5rem 3rem}
+.services-accordion{display:flex;height:440px;margin-top:3rem;border:1px solid rgba(255,255,255,0.06);overflow:hidden}
+.service-slice{flex:1;position:relative;border-right:1px solid rgba(255,255,255,0.06);overflow:hidden;transition:flex 0.65s cubic-bezier(0.23,1,0.32,1);background:var(--surface)}
+.service-slice:nth-child(even){background:var(--surface2)}
+.service-slice:last-child{border-right:none}
+.slice-collapsed{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 0;transition:opacity 0.15s 0.3s}
+
+.slice-title-v{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--off-white);writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.slice-expanded{position:absolute;inset:0;padding:2.5rem;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.1s 0s;min-width:280px}
+.slice-expanded h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:0.75rem;color:var(--off-white)}
+.slice-expanded p{font-size:0.85rem;line-height:1.75;color:var(--muted);margin-bottom:1.5rem}
+.slice-link{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.slice-link::after{content:' →'}
+@media (hover: hover) and (pointer: fine){
+  .service-slice:hover{flex:4}
+  .service-slice:hover .slice-collapsed{opacity:0;pointer-events:none;transition:opacity 0.1s 0s}
+  .service-slice:hover .slice-expanded{opacity:1;transition:opacity 0.22s 0.3s}
+}
+.section-eyebrow{display:inline-block;align-self:flex-start;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;border:1px solid rgba(209,59,30,0.3);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(209,59,30,0.08)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:1.5rem}
+
+/* PHOTO + ABOUT */
+.about-section{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.about-photo{position:relative;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-photo::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,transparent,var(--black))}
+.about-content{background:var(--black);padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
+.about-content p:not(.section-eyebrow){font-size:0.95rem;line-height:1.85;color:#b8b0a6;margin-bottom:1.25rem}
+.pull-quote-block{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0}
+.pull-quote-block blockquote{font-size:1.1rem;line-height:1.65;font-style:italic;color:var(--off-white);margin-bottom:0.75rem}
+.pull-quote-block cite{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--surface);padding:5rem 3rem}
+.quote-rotator{margin-top:3rem;display:grid}
+.quote-slide{grid-area:1/1;display:flex;flex-direction:column;opacity:0;transition:opacity 0.6s cubic-bezier(0.32,0.72,0,1);pointer-events:none}
+.quote-slide.active{opacity:1;pointer-events:auto}
+.t-stars{color:var(--gold);font-size:1rem;margin-bottom:1.5rem;letter-spacing:0.15em}
+.t-body{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;color:var(--off-white);margin-bottom:1.5rem;max-width:900px;font-style:normal}
+.t-author{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red)}
+.quote-dots{display:flex;gap:0.6rem;margin-top:2.5rem}
+.quote-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;padding:0;transition:background 0.2s}
+.quote-dot.active{background:var(--red)}
+.quote-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* EVENTS LIST */
+.events-section{padding:5rem 3rem}
+.events-list{margin-top:3rem;border-top:1px solid rgba(255,255,255,0.08)}
+.event-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:padding-left 0.35s cubic-bezier(0.23,1,0.32,1)}
+
+.event-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3.5vw,3.2rem);letter-spacing:0.03em;line-height:1;transition:color 0.25s cubic-bezier(0.23,1,0.32,1)}
+.event-desc{font-size:0.85rem;line-height:1.7;color:var(--muted);max-width:380px}
+@media (hover: hover) and (pointer: fine){
+  .event-row:hover{padding-left:1rem}
+  .event-row:hover .event-name{color:var(--red)}
+}
+
+/* CONTACT */
+#contact{background:var(--off-white);color:var(--black);padding:5rem 3rem}
+#contact .section-title{color:var(--black)}
+#contact .section-eyebrow{color:var(--red)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem}
+.contact-info p{font-size:0.9rem;line-height:1.75;color:#555;margin-bottom:2rem}
+.contact-group{margin-bottom:1.75rem}
+.contact-group-label{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:#999;margin-bottom:0.35rem}
+.contact-group-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:var(--black);margin-bottom:0.65rem}
+.contact-detail{display:flex;align-items:baseline;gap:0.75rem;font-size:0.85rem;margin-bottom:0.85rem;color:#333}
+.contact-detail strong{font-weight:500;color:var(--black);min-width:72px;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
+.contact-detail a{color:var(--red);text-decoration:none}
+@media (hover: hover) and (pointer: fine){.contact-detail a:hover{text-decoration:underline}}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.contact-form input,.contact-form textarea{background:#ede8df;border:1px solid #d0c8bb;color:var(--black);padding:0.9rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.9rem;border-radius:2px;outline:none;resize:vertical;width:100%;transition:border-color 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--red)}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#999}
+.contact-form textarea{min-height:120px}
+
+footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:1rem}
+.footer-logo img{height:40px;width:auto;object-fit:contain}
+.footer-copy{font-size:0.75rem;color:var(--muted)}
+.footer-social{display:flex;gap:1.5rem}
+.footer-social a{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.15s cubic-bezier(0.23,1,0.32,1)}
+@media (hover: hover) and (pointer: fine){.footer-social a:hover{color:var(--off-white)}}
+
+/* CLIENTS MARQUEE */
+.clients-section{padding:3rem 0;background:var(--surface);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);overflow:hidden}
+.clients-label{text-align:center;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.marquee-track{display:flex;overflow:hidden;white-space:nowrap}
+.marquee-inner{display:flex;flex-shrink:0;animation:marquee 28s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.client-logo{display:inline-flex;align-items:center;justify-content:center;padding:0 3.5rem;height:60px;border-right:1px solid rgba(255,255,255,0.07)}
+.client-logo span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:rgba(245,240,232,0.35);transition:color 0.3s}
+@media (hover: hover) and (pointer: fine){.client-logo:hover span{color:rgba(245,240,232,0.75)}}
+@media(max-width:900px){.clients-section{padding:2rem 0}}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .mobile-menu.open{display:flex}
+  .hero-content{padding:0 1.5rem 3rem}
+  .video-section{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
+  #services{padding:3.5rem 1.5rem}
+  .services-accordion{flex-direction:column;height:auto}
+  .service-slice{min-height:auto;border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .service-slice:last-child{border-bottom:none}
+  .slice-collapsed{display:none}
+  .slice-expanded{position:relative;inset:auto;opacity:1;padding:2rem 1.5rem}
+  .about-section{grid-template-columns:1fr}
+  .about-photo{height:350px}
+  .about-photo::after{display:none}
+  .about-content{padding:3rem 1.5rem}
+  .events-section{padding:3.5rem 1.5rem}
+  .event-row{grid-template-columns:1fr}.event-desc{display:none}
+  #testimonials{padding:3.5rem 1.5rem}
+  #contact{padding:3.5rem 1.5rem}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  footer{flex-direction:column;text-align:center;padding:1.5rem}
+}
+/* SCROLL REVEALS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s cubic-bezier(0.32,0.72,0,1),transform 0.75s cubic-bezier(0.32,0.72,0,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+/* MOBILE MENU STAGGER */
+@keyframes menuIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu.open ul li{animation:menuIn 0.45s cubic-bezier(0.32,0.72,0,1) both}
+.mobile-menu.open ul li:nth-child(1){animation-delay:0.08s}
+.mobile-menu.open ul li:nth-child(2){animation-delay:0.14s}
+.mobile-menu.open ul li:nth-child(3){animation-delay:0.2s}
+.mobile-menu.open ul li:nth-child(4){animation-delay:0.26s}
+.mobile-menu.open .mobile-cta{animation:menuIn 0.45s cubic-bezier(0.32,0.72,0,1) 0.32s both}
+/* GRAIN OVERLAY */
+.grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<nav>
+  <a href="#" class="nav-logo"><img width="70" height="70" src="assets/logo.webp" alt="Rhythm Messengers"></a>
+  <ul class="nav-links">
+    <li><a href="#video">Watch</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
+  <ul>
+    <li><a href="#video" onclick="closeMenu()">Watch</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#testimonials" onclick="closeMenu()">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="mobile-cta" onclick="closeMenu()">Book Now</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="assets/hero-bg.webp" alt="Rhythm Messengers performing at corporate event">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Chicago's Premier Drumline Entertainment</p>
+    <h1 class="hero-headline">THE BEAT<br>THAT OPENS <span class="accent">THE SHOW</span></h1>
+    <p class="hero-sub">A crew of highly animated drummers and entertainers who transform any event into something the crowd will be talking about long after the last beat drops.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book the Show</a>
+      <a href="#video" class="btn-ghost">Watch Us Perform</a>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video-section reveal" id="video">
+  <div class="video-left">
+    <p class="section-eyebrow">See It Live</p>
+    <h2 class="section-title">WATCH US<br>PERFORM</h2>
+    <p>From corporate ballrooms to festival main stages, the Rhythm Messengers deliver a choreographed, high-energy drumming experience that gets every crowd on their feet.</p>
+    <a href="#contact" class="btn-primary">Book Your Date</a>
+  </div>
+  <div class="video-right">
+    <video controls preload="metadata" poster="assets/video-poster.webp">
+      <source src="assets/performance.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<div class="clients-section reveal">
+  <p class="clients-label">Trusted by</p>
+  <div class="marquee-track">
+    <div class="marquee-inner" aria-hidden="true">
+      <div class="client-logo"><span>Century 21</span></div>
+      <div class="client-logo"><span>DecisionOne Dental</span></div>
+      <div class="client-logo"><span>Just Rite Acoustics</span></div>
+      <div class="client-logo"><span>Chicago Bulls</span></div>
+      <div class="client-logo"><span>Lollapalooza</span></div>
+      <div class="client-logo"><span>Navy Pier</span></div>
+      <div class="client-logo"><span>Millennium Park</span></div>
+      <div class="client-logo"><span>United Center</span></div>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <div class="client-logo"><span>Century 21</span></div>
+      <div class="client-logo"><span>DecisionOne Dental</span></div>
+      <div class="client-logo"><span>Just Rite Acoustics</span></div>
+      <div class="client-logo"><span>Chicago Bulls</span></div>
+      <div class="client-logo"><span>Lollapalooza</span></div>
+      <div class="client-logo"><span>Navy Pier</span></div>
+      <div class="client-logo"><span>Millennium Park</span></div>
+      <div class="client-logo"><span>United Center</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-eyebrow">What We Bring</p>
+  <h2 class="section-title">BUILT FOR ANY STAGE</h2>
+  <div class="services-accordion">
+    <div class="service-slice">
+      <div class="slice-collapsed">
+        <span class="slice-title-v">Corporate Events</span>
+      </div>
+      <div class="slice-expanded">
+        <h3>Corporate Events</h3>
+        <p>Kick off your meeting, rally, or conference with electrifying drumming that gets your team out of their chairs and keeps them engaged all day.</p>
+        <a href="#contact" class="slice-link">Book the show</a>
+      </div>
+    </div>
+    <div class="service-slice">
+      <div class="slice-collapsed">
+        <span class="slice-title-v">Trade Shows</span>
+      </div>
+      <div class="slice-expanded">
+        <h3>Trade Shows</h3>
+        <p>Stop traffic at your booth with a percussion performance they won't forget. Turn foot traffic into an engaged crowd that stays.</p>
+        <a href="#contact" class="slice-link">Book the show</a>
+      </div>
+    </div>
+    <div class="service-slice">
+      <div class="slice-collapsed">
+        <span class="slice-title-v">Festivals</span>
+      </div>
+      <div class="slice-expanded">
+        <h3>Festivals</h3>
+        <p>Main stage or street performance — we light the fuse. Your guests will jump, stomp, and dance away.</p>
+        <a href="#contact" class="slice-link">Book the show</a>
+      </div>
+    </div>
+    <div class="service-slice">
+      <div class="slice-collapsed">
+        <span class="slice-title-v">Custom Performances</span>
+      </div>
+      <div class="slice-expanded">
+        <h3>Custom Performances</h3>
+        <p>Multi-set pieces tailored to your event theme and brand. We transform your idea into something the crowd won't forget.</p>
+        <a href="#contact" class="slice-link">Book the show</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT with real photo -->
+<div class="about-section" id="about">
+  <div class="about-photo">
+    <img src="assets/about-photo.webp" alt="Rhythm Messengers performing">
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2 class="section-title">CHICAGO'S<br>DRUMLINE</h2>
+    <p>The Rhythm Messengers are a collection of performers drawing from Chicago's deep musical heritage — an adaptable crew of highly animated drummers and entertainers built to bring the energy at any event.</p>
+    <p>Working with us in the planning stage is a breeze. We're always available, full of fresh ideas, and deliver an insane performance every time.</p>
+    <div class="pull-quote-block">
+      <blockquote>"They were incredibly easy to work with, provided fresh ideas, delivered an insane performance, and were just nice people!"</blockquote>
+      <cite>Operations Director — Century 21</cite>
+    </div>
+    <a href="#contact" class="btn-primary">Plan Your Event</a>
+  </div>
+</div>
+
+<!-- EVENTS LIST -->
+<div class="events-section reveal">
+  <p class="section-eyebrow">Where We Play</p>
+  <h2 class="section-title">EVERY VENUE.<br>EVERY CROWD.</h2>
+  <div class="events-list">
+    <div class="event-row">
+      <h3 class="event-name">Sales Rallies</h3>
+      <p class="event-desc">Inject excitement and pride into your company's biggest moments.</p>
+    </div>
+    <div class="event-row">
+      <h3 class="event-name">Sporting Events</h3>
+      <p class="event-desc">Energy that matches the game — before, during, and after.</p>
+    </div>
+    <div class="event-row">
+      <h3 class="event-name">Concerts</h3>
+      <p class="event-desc">Open the show or own the intermission. We set the stage.</p>
+    </div>
+    <div class="event-row">
+      <h3 class="event-name">Private Events</h3>
+      <p class="event-desc">Make your celebration unforgettable from the first beat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="reveal">
+  <p class="section-eyebrow">Client Reviews</p>
+  <h2 class="section-title">THEY BROUGHT THE HOUSE DOWN</h2>
+  <div class="quote-rotator" id="quoteRotator">
+    <div class="quote-slide active">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-body">"They transformed what could have been a stuffy corporate meeting into something unforgettable. High-energy drum breaks got our employees out of their chairs and kept them fired up all day."</p>
+      <p class="t-author">Creative Manager — DecisionOne Dental Partners</p>
+    </div>
+    <div class="quote-slide">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-body">"Incredibly easy to work with, fresh ideas, an insane performance — and just great people. If you want your crowd moving, hire these guys."</p>
+      <p class="t-author">Operations Director — Century 21</p>
+    </div>
+    <div class="quote-slide">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-body">"I truly appreciate the talent, energy, and heart they put into the performance. Every one of them was happy to be there making our night special."</p>
+      <p class="t-author">Owner — Just Rite Acoustics</p>
+    </div>
+  </div>
+  <div class="quote-dots">
+    <button class="quote-dot active" onclick="goToQuote(0)" aria-label="Quote 1"></button>
+    <button class="quote-dot" onclick="goToQuote(1)" aria-label="Quote 2"></button>
+    <button class="quote-dot" onclick="goToQuote(2)" aria-label="Quote 3"></button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <p class="section-eyebrow">Get in Touch</p>
+  <h2 class="section-title">LET'S MAKE SOME NOISE</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Tell us about your event and we'll craft a performance your guests will be talking about long after the last beat drops.</p>
+      <div class="contact-group">
+        <div class="contact-group-label">Band Leader</div>
+        <div class="contact-group-name">Thomas Benko</div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <a href="mailto:tabdrums@gmail.com">tabdrums@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <strong>Instagram</strong>
+          <a href="https://instagram.com/rhythmmessengers/" target="_blank">@rhythmmessengers</a>
+        </div>
+      </div>
+      <div class="contact-group">
+        <div class="contact-group-label">Booking Agent</div>
+        <div class="contact-group-name">Dayna Malow — Live Art International</div>
+        <div class="contact-detail">
+          <strong>Email</strong>
+          <a href="mailto:dayna@liveartinternational.com">dayna@liveartinternational.com</a>
+        </div>
+        <div class="contact-detail">
+          <strong>Phone</strong>
+          <a href="tel:18009859330">1-800-985-9330</a>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Event Type &amp; Date">
+      <textarea placeholder="Tell us about your event…"></textarea>
+      <button type="submit" class="btn-primary" style="text-align:center">Send Message</button>
+      <div id="form-msg" style="font-size:0.82rem;display:none;text-align:center;padding:0.5rem"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <img src="assets/logo.webp" alt="Rhythm Messengers" style="height:40px;width:auto">
+  <div class="footer-copy">© 2026 Rhythm Messengers. Chicago, IL. &nbsp;·&nbsp; <a href="/privacy" style="color:inherit;text-decoration:none;opacity:0.6">Privacy</a> &nbsp;·&nbsp; <a href="/terms" style="color:inherit;text-decoration:none;opacity:0.6">Terms</a></div>
+  <div class="footer-social">
+    <a href="https://instagram.com/rhythmmessengers/" target="_blank">Instagram</a>
+    <a href="mailto:info@rhythmmessengers.com">Email</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+const hamburger = document.querySelector('.nav-hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+function toggleMenu() {
+  const isOpen = mobileMenu.classList.contains('open');
+  isOpen ? closeMenu() : openMenu();
+}
+
+function openMenu() {
+  mobileMenu.style.display = 'flex';
+  requestAnimationFrame(() => mobileMenu.classList.add('open'));
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'Close menu');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Open menu');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (!mobileMenu.classList.contains('open')) mobileMenu.style.display = 'none'; }, 300);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const nameField = form.querySelector('input[type="text"]');
+  const emailField = form.querySelector('input[type="email"]');
+  const msg = document.getElementById('form-msg');
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  form.querySelectorAll('.field-error').forEach(el => el.remove());
+  form.querySelectorAll('input,textarea').forEach(el => el.style.borderColor = '');
+
+  let valid = true;
+  function showError(field, text) {
+    field.style.borderColor = 'var(--red)';
+    const err = document.createElement('span');
+    err.className = 'field-error';
+    err.style.cssText = 'font-size:0.75rem;color:var(--red);margin-top:-0.5rem;display:block';
+    err.textContent = text;
+    field.insertAdjacentElement('afterend', err);
+    valid = false;
+  }
+
+  if (!nameField.value.trim()) showError(nameField, 'Name is required.');
+  if (!emailField.value.trim()) showError(emailField, 'Email is required.');
+  else if (!emailRe.test(emailField.value.trim())) showError(emailField, 'Enter a valid email address.');
+
+  if (!valid) return;
+
+  msg.style.display = 'block';
+  msg.style.color = '#333';
+  msg.textContent = "Message sent. We'll be in touch soon.";
+  form.querySelectorAll('input,textarea,button').forEach(el => el.disabled = true);
+}
+
+// Quote rotator
+let currentQuote = 0;
+const slides = document.querySelectorAll('.quote-slide');
+const dots = document.querySelectorAll('.quote-dot');
+
+function goToQuote(n) {
+  slides[currentQuote].classList.remove('active');
+  dots[currentQuote].classList.remove('active');
+  currentQuote = n;
+  slides[currentQuote].classList.add('active');
+  dots[currentQuote].classList.add('active');
+}
+
+if (slides.length) {
+  setInterval(() => goToQuote((currentQuote + 1) % slides.length), 6000);
+}
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('nav-active'));
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('nav-active');
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => observer.observe(s));
+// Scroll reveals
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+// GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero content stagger on load
+gsap.fromTo('.hero-eyebrow',
+  { opacity: 0, y: 18 },
+  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.2 }
+);
+gsap.fromTo('.hero-headline',
+  { opacity: 0, y: 28 },
+  { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', delay: 0.38 }
+);
+gsap.fromTo('.hero-sub',
+  { opacity: 0, y: 18 },
+  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.56 }
+);
+gsap.fromTo('.hero-actions',
+  { opacity: 0, y: 14 },
+  { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', delay: 0.7 }
+);
+
+// Hero bg subtle parallax
+gsap.to('.hero-bg img', {
+  yPercent: 18,
+  ease: 'none',
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+});
+
+// About photo scale reveal (starts slightly zoomed, settles on scroll)
+gsap.fromTo('.about-photo img',
+  { scale: 1.08 },
+  { scale: 1, ease: 'none',
+    scrollTrigger: { trigger: '.about-section', start: 'top 80%', end: 'center center', scrub: true }
+  }
+);
+
+// Service slices stagger in
+gsap.fromTo('.service-slice',
+  { opacity: 0, y: 20 },
+  { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out', stagger: 0.09,
+    scrollTrigger: { trigger: '.services-accordion', start: 'top 78%', once: true }
+  }
+);
+
+// Event rows stagger in
+gsap.fromTo('.event-row',
+  { opacity: 0, x: -16 },
+  { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out', stagger: 0.08,
+    scrollTrigger: { trigger: '.events-list', start: 'top 80%', once: true }
+  }
+);
+
+</script>
+</body>
+</html>
