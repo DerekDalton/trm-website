@@ -35,7 +35,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* Brand colors — logo red #fe0901, logo orange #f77c01 (held in --gold) */
+  /* Brand colors: logo red #fe0901, logo orange #f77c01 (held in --gold) */
   --black:#0a0a0a;--off-white:#f5f0e8;--red:#fe0901;--red-dark:#c40600;
   --gold:#f77c01;--muted:#a09a8e;--surface:#141414;--surface2:#1e1c1a;
 }
@@ -70,10 +70,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 /* HERO */
 .hero{min-height:100dvh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg img{width:100%;height:120%;object-fit:cover;object-position:center 30%}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.75) 70%, rgba(10,10,10,0.97) 100%)}
 .hero-content{position:relative;z-index:2;padding:0 3rem 4rem}
-.hero-eyebrow{display:inline-block;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:400;border:1px solid rgba(247,124,1,0.35);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(247,124,1,0.08)}
 .hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,10vw,9rem);line-height:0.9;letter-spacing:0.02em;margin-bottom:1.5rem;max-width:800px;text-wrap:balance}
 .hero-headline .accent{color:var(--red)}
 .hero-sub{font-size:1.05rem;line-height:1.75;color:#d0c8be;max-width:500px;margin-bottom:2.5rem}
@@ -86,7 +85,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 
 /* VIDEO SECTION */
 .video-section{background:var(--surface);padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.video-left .section-eyebrow{display:inline-block;align-self:flex-start;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;border:1px solid rgba(254,9,1,0.3);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(254,9,1,0.08)}
 .video-left .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1;margin-bottom:1.25rem}
 .video-left p{font-size:0.95rem;line-height:1.8;color:#b0a89e;margin-bottom:1.5rem}
 .video-right{position:relative;border-radius:2px;overflow:hidden;background:#000;aspect-ratio:16/9}
@@ -111,7 +109,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
   .service-slice:hover .slice-collapsed{opacity:0;pointer-events:none;transition:opacity 0.1s 0s}
   .service-slice:hover .slice-expanded{opacity:1;transition:opacity 0.22s 0.3s}
 }
-.section-eyebrow{display:inline-block;align-self:flex-start;width:fit-content;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:1.25rem;border:1px solid rgba(254,9,1,0.3);border-radius:100px;padding:0.3rem 0.85rem;background:rgba(254,9,1,0.08)}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:1.5rem}
 .section-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,2.5vw,1.75rem);letter-spacing:0.08em;line-height:1;color:var(--red);margin-top:-1rem;margin-bottom:1.5rem}
 
@@ -121,7 +118,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .about-photo::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,transparent,var(--black))}
 .about-content{background:var(--black);padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
-.about-content p:not(.section-eyebrow){font-size:0.95rem;line-height:1.85;color:#b8b0a6;margin-bottom:1.25rem}
+.about-content p{font-size:0.95rem;line-height:1.85;color:#b8b0a6;margin-bottom:1.25rem}
 .pull-quote-block{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0}
 .pull-quote-block blockquote{font-size:1.1rem;line-height:1.65;font-style:italic;color:var(--off-white);margin-bottom:0.75rem}
 .pull-quote-block cite{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
@@ -154,7 +151,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 /* CONTACT */
 #contact{background:var(--off-white);color:var(--black);padding:5rem 3rem}
 #contact .section-title{color:var(--black)}
-#contact .section-eyebrow{color:var(--red)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3rem}
 .contact-info p{font-size:0.9rem;line-height:1.75;color:#555;margin-bottom:2rem}
 .contact-group{margin-bottom:1.75rem}
@@ -181,11 +177,12 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 .clients-section{padding:3rem 0;background:var(--surface);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);overflow:hidden}
 .clients-label{text-align:center;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
 .marquee-track{display:flex;overflow:hidden;white-space:nowrap}
-.marquee-inner{display:flex;flex-shrink:0;animation:marquee 28s linear infinite}
+.marquee-inner{display:flex;flex-shrink:0;animation:marquee 100s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.client-logo{display:inline-flex;align-items:center;justify-content:center;padding:0 3.5rem;height:60px;border-right:1px solid rgba(255,255,255,0.07)}
-.client-logo span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:rgba(245,240,232,0.35);transition:color 0.3s}
-@media (hover: hover) and (pointer: fine){.client-logo:hover span{color:rgba(245,240,232,0.75)}}
+.client-logo{display:inline-flex;align-items:center;justify-content:center;height:80px;padding:0 2.5rem}
+.client-logo span{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:rgba(245,240,232,0.5)}
+.client-logo img{max-height:64px;max-width:155px;width:auto;height:auto;object-fit:contain;display:block;filter:grayscale(100%)}
+.client-logo img.white{filter:brightness(0) invert(1)}
 @media(max-width:900px){.clients-section{padding:2rem 0}}
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
@@ -316,7 +313,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
         {
           "@type": "Question",
           "name": "What is a drumline performance?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are a Chicago drumline — a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are a Chicago drumline: a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet." }
         },
         {
           "@type": "Question",
@@ -331,17 +328,17 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
         {
           "@type": "Question",
           "name": "How much does it cost to hire a drumline?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote — there's no fixed ticket price." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote. There's no fixed ticket price." }
         },
         {
           "@type": "Question",
           "name": "How large is the group?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue — a tight ensemble for a corporate ballroom or a full battery for a festival stage." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble for a corporate ballroom or a full battery for a festival stage." }
         },
         {
           "@type": "Question",
           "name": "How far in advance should we book?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The earlier the better — popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The earlier the better: popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available." }
         }
       ]
     }
@@ -384,9 +381,8 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
     <img src="assets/hero-bg.webp" alt="Rhythm Messengers Chicago drumline performing at a corporate event" width="1094" height="1068" fetchpriority="high">
   </div>
   <div class="hero-content">
-    <p class="hero-eyebrow">The Rhythm Messengers · Chicago Drumline Entertainment</p>
     <h1 class="hero-headline">THE DRUMLINE<br>THAT ELEVATES <span class="accent">THE SHOW</span></h1>
-    <p class="hero-sub">The Rhythm Messengers are Chicago's premier drumline entertainment group — high-energy drummers and performers who turn corporate events, trade shows, festivals, and private parties into something your crowd won't stop talking about.</p>
+    <p class="hero-sub">The Rhythm Messengers are Chicago's premier drumline entertainment group, high-energy drummers and performers who turn corporate events, trade shows, festivals, and private parties into something your crowd won't stop talking about.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Book the Show</a>
       <a href="#video" class="btn-ghost">Watch Us Perform</a>
@@ -397,8 +393,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 <!-- VIDEO -->
 <div class="video-section reveal" id="video">
   <div class="video-left">
-    <p class="section-eyebrow">See It Live</p>
-    <h2 class="section-title">WATCH US<br>PERFORM</h2>
+    <h2 class="section-title">WATCH US PERFORM</h2>
     <p>From corporate ballrooms to festival main stages, the Rhythm Messengers deliver a choreographed, high-energy drumming experience that gets every crowd on their feet.</p>
     <a href="#contact" class="btn-primary">Book Your Date</a>
   </div>
@@ -414,33 +409,77 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <p class="clients-label">Trusted by</p>
   <div class="marquee-track">
     <div class="marquee-inner" aria-hidden="true">
-      <div class="client-logo"><span>Century 21</span></div>
-      <div class="client-logo"><span>DecisionOne Dental</span></div>
-      <div class="client-logo"><span>Just Rite Acoustics</span></div>
-      <div class="client-logo"><span>Chicago Bulls</span></div>
-      <div class="client-logo"><span>Lollapalooza</span></div>
-      <div class="client-logo"><span>Navy Pier</span></div>
-      <div class="client-logo"><span>Millennium Park</span></div>
-      <div class="client-logo"><span>United Center</span></div>
+      <div class="client-logo"><img src="assets/logos/century21.png" alt="Century 21"></div>
+      <div class="client-logo"><img src="assets/logos/decisionone.jpg" alt="DecisionOne Dental"></div>
+      <div class="client-logo"><img src="assets/logos/justrite.png" alt="Just Rite Acoustics"></div>
+      <div class="client-logo"><img src="assets/logos/chicagobulls.png" alt="Chicago Bulls"></div>
+      <div class="client-logo"><img src="assets/logos/lollapalooza.png" alt="Lollapalooza"></div>
+      <div class="client-logo"><img src="assets/logos/navypier.png" alt="Navy Pier"></div>
+      <div class="client-logo"><img src="assets/logos/millenniumpark.png" alt="Millennium Park"></div>
+      <div class="client-logo"><img src="assets/logos/unitedcenter.png" alt="United Center"></div>
+      <div class="client-logo"><img src="assets/logos/bananaball.webp" alt="Banana Ball"></div>
+      <div class="client-logo"><img src="assets/logos/bannerdaycamp.webp" alt="Banner Day Camp"></div>
+      <div class="client-logo"><img src="assets/logos/kanecountycougars.svg" alt="Kane County Cougars"></div>
+      <div class="client-logo"><img src="assets/logos/chicagofire.webp" alt="Chicago Fire FC"></div>
+      <div class="client-logo"><img src="assets/logos/gatewaygrizzlies.png" alt="Gateway Grizzlies"></div>
+      <div class="client-logo"><img src="assets/logos/sura.webp" alt="Sura"></div>
+      <div class="client-logo"><img src="assets/logos/wrigleyfieldevents.svg" alt="Wrigley Events"></div>
+      <div class="client-logo"><img src="assets/logos/chicagosportsmuseum.png" alt="Chicago Sports Museum"></div>
+      <div class="client-logo"><img src="assets/logos/jewelosco.webp" alt="Jewel-Osco"></div>
+      <div class="client-logo"><img src="assets/logos/marchmadness.webp" alt="March Madness"></div>
+      <div class="client-logo"><img src="assets/logos/mapsandatlases.png" alt="Maps and Atlases"></div>
+      <div class="client-logo"><img src="assets/logos/girlsgottaeat.webp" alt="Girls Gotta Eat Podcast"></div>
+      <div class="client-logo"><img src="assets/logos/wintrust.webp" alt="Wintrust"></div>
+      <div class="client-logo"><img src="assets/logos/chicagolightsfestival.png" alt="Chicago Lights Festival"></div>
+      <div class="client-logo"><img src="assets/logos/tacosandtequila.png" alt="Tacos and Tequila Festival"></div>
+      <div class="client-logo"><img src="assets/logos/northwesternmedicine.webp" alt="Northwestern Medicine"></div>
+      <div class="client-logo"><img src="assets/logos/sensesfail.webp" alt="Senses Fail"></div>
+      <div class="client-logo"><img src="assets/logos/sonepar.png" alt="Sonepar"></div>
+      <div class="client-logo"><img src="assets/logos/neca.png" alt="NECA"></div>
+      <div class="client-logo"><img src="assets/logos/blockparty.jpg" alt="Wilmette Block Party"></div>
+      <div class="client-logo"><img src="assets/logos/fairmont.webp" alt="Fairmont Inn and Suites"></div>
+      <div class="client-logo"><img src="assets/logos/kygo.png" alt="Kygo"></div>
+      <div class="client-logo"><img src="assets/logos/twofriends.webp" alt="Two Friends"></div>
     </div>
     <div class="marquee-inner" aria-hidden="true">
-      <div class="client-logo"><span>Century 21</span></div>
-      <div class="client-logo"><span>DecisionOne Dental</span></div>
-      <div class="client-logo"><span>Just Rite Acoustics</span></div>
-      <div class="client-logo"><span>Chicago Bulls</span></div>
-      <div class="client-logo"><span>Lollapalooza</span></div>
-      <div class="client-logo"><span>Navy Pier</span></div>
-      <div class="client-logo"><span>Millennium Park</span></div>
-      <div class="client-logo"><span>United Center</span></div>
+      <div class="client-logo"><img src="assets/logos/century21.png" alt="Century 21"></div>
+      <div class="client-logo"><img src="assets/logos/decisionone.jpg" alt="DecisionOne Dental"></div>
+      <div class="client-logo"><img src="assets/logos/justrite.png" alt="Just Rite Acoustics"></div>
+      <div class="client-logo"><img src="assets/logos/chicagobulls.png" alt="Chicago Bulls"></div>
+      <div class="client-logo"><img src="assets/logos/lollapalooza.png" alt="Lollapalooza"></div>
+      <div class="client-logo"><img src="assets/logos/navypier.png" alt="Navy Pier"></div>
+      <div class="client-logo"><img src="assets/logos/millenniumpark.png" alt="Millennium Park"></div>
+      <div class="client-logo"><img src="assets/logos/unitedcenter.png" alt="United Center"></div>
+      <div class="client-logo"><img src="assets/logos/bananaball.webp" alt="Banana Ball"></div>
+      <div class="client-logo"><img src="assets/logos/bannerdaycamp.webp" alt="Banner Day Camp"></div>
+      <div class="client-logo"><img src="assets/logos/kanecountycougars.svg" alt="Kane County Cougars"></div>
+      <div class="client-logo"><img src="assets/logos/chicagofire.webp" alt="Chicago Fire FC"></div>
+      <div class="client-logo"><img src="assets/logos/gatewaygrizzlies.png" alt="Gateway Grizzlies"></div>
+      <div class="client-logo"><img src="assets/logos/sura.webp" alt="Sura"></div>
+      <div class="client-logo"><img src="assets/logos/wrigleyfieldevents.svg" alt="Wrigley Events"></div>
+      <div class="client-logo"><img src="assets/logos/chicagosportsmuseum.png" alt="Chicago Sports Museum"></div>
+      <div class="client-logo"><img src="assets/logos/jewelosco.webp" alt="Jewel-Osco"></div>
+      <div class="client-logo"><img src="assets/logos/marchmadness.webp" alt="March Madness"></div>
+      <div class="client-logo"><img src="assets/logos/mapsandatlases.png" alt="Maps and Atlases"></div>
+      <div class="client-logo"><img src="assets/logos/girlsgottaeat.webp" alt="Girls Gotta Eat Podcast"></div>
+      <div class="client-logo"><img src="assets/logos/wintrust.webp" alt="Wintrust"></div>
+      <div class="client-logo"><img src="assets/logos/chicagolightsfestival.png" alt="Chicago Lights Festival"></div>
+      <div class="client-logo"><img src="assets/logos/tacosandtequila.png" alt="Tacos and Tequila Festival"></div>
+      <div class="client-logo"><img src="assets/logos/northwesternmedicine.webp" alt="Northwestern Medicine"></div>
+      <div class="client-logo"><img src="assets/logos/sensesfail.webp" alt="Senses Fail"></div>
+      <div class="client-logo"><img src="assets/logos/sonepar.png" alt="Sonepar"></div>
+      <div class="client-logo"><img src="assets/logos/neca.png" alt="NECA"></div>
+      <div class="client-logo"><img src="assets/logos/blockparty.jpg" alt="Wilmette Block Party"></div>
+      <div class="client-logo"><img src="assets/logos/fairmont.webp" alt="Fairmont Inn and Suites"></div>
+      <div class="client-logo"><img src="assets/logos/kygo.png" alt="Kygo"></div>
+      <div class="client-logo"><img src="assets/logos/twofriends.webp" alt="Two Friends"></div>
     </div>
   </div>
 </div>
 
 <!-- SERVICES -->
 <section id="services">
-  <p class="section-eyebrow">Where We Play</p>
   <h2 class="section-title">EVERY VENUE. EVERY CROWD.</h2>
-  <p class="section-subtitle">Chicago drumline for every stage</p>
   <div class="services-accordion">
     <div class="service-slice">
       <div class="slice-collapsed">
@@ -468,7 +507,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
       </div>
       <div class="slice-expanded">
         <h3>Festival Drumline</h3>
-        <p>Main stage or street performance — we light the fuse. Your guests will jump, stomp, and dance away.</p>
+        <p>Main stage or street performance. We light the fuse. Your guests will jump, stomp, and dance away.</p>
         <a href="#contact" class="slice-link">Book the show</a>
       </div>
     </div>
@@ -501,13 +540,12 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
     <img src="assets/about-photo.webp" alt="Rhythm Messengers Chicago drumline crew performing live" width="1125" height="729" loading="lazy">
   </div>
   <div class="about-content">
-    <p class="section-eyebrow">Who We Are</p>
-    <h2 class="section-title">CHICAGO'S<br>DRUMLINE</h2>
-    <p>The Rhythm Messengers are Chicago's premier drumline entertainment group, drawing on the city's deep musical heritage. An adaptable crew of highly animated drummers and entertainers, the Rhythm Messengers are built to bring the energy to any event — corporate, festival, or private.</p>
+    <h2 class="section-title">CHICAGO'S DRUMLINE</h2>
+    <p>Drawing on the city's deep musical heritage, the Rhythm Messengers are an adaptable crew of highly animated drummers and entertainers, built to bring the energy to any event, corporate, festival, or private.</p>
     <p>Working with us in the planning stage is a breeze. We're always available, full of fresh ideas, and deliver an insane performance every time.</p>
     <div class="pull-quote-block">
       <blockquote>"They were incredibly easy to work with, provided fresh ideas, delivered an insane performance, and were just nice people!"</blockquote>
-      <cite>Operations Director — Century 21</cite>
+      <cite>Operations Director, Century 21</cite>
     </div>
     <a href="#contact" class="btn-primary">Plan Your Event</a>
   </div>
@@ -515,23 +553,23 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="reveal">
-  <p class="section-eyebrow">Client Reviews</p>
   <h2 class="section-title">THEY BROUGHT THE HOUSE DOWN</h2>
+  <p class="section-subtitle">What our clients say</p>
   <div class="quote-rotator" id="quoteRotator">
     <div class="quote-slide active">
       <div class="t-stars">★★★★★</div>
       <p class="t-body">"They transformed what could have been a stuffy corporate meeting into something unforgettable. High-energy drum breaks got our employees out of their chairs and kept them fired up all day."</p>
-      <p class="t-author">Creative Manager — DecisionOne Dental Partners</p>
+      <p class="t-author">Creative Manager, DecisionOne Dental Partners</p>
     </div>
     <div class="quote-slide">
       <div class="t-stars">★★★★★</div>
-      <p class="t-body">"Incredibly easy to work with, fresh ideas, an insane performance — and just great people. If you want your crowd moving, hire these guys."</p>
-      <p class="t-author">Operations Director — Century 21</p>
+      <p class="t-body">"Incredibly easy to work with, fresh ideas, an insane performance, and just great people. If you want your crowd moving, hire these guys."</p>
+      <p class="t-author">Operations Director, Century 21</p>
     </div>
     <div class="quote-slide">
       <div class="t-stars">★★★★★</div>
       <p class="t-body">"I truly appreciate the talent, energy, and heart they put into the performance. Every one of them was happy to be there making our night special."</p>
-      <p class="t-author">Owner — Just Rite Acoustics</p>
+      <p class="t-author">Owner, Just Rite Acoustics</p>
     </div>
   </div>
   <div class="quote-dots">
@@ -543,12 +581,11 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 
 <!-- FAQ -->
 <section id="faq" class="faq-section reveal">
-  <p class="section-eyebrow">Common Questions</p>
   <h2 class="section-title">DRUMLINE BOOKING, ANSWERED</h2>
   <div class="faq-list">
     <details class="faq-item" open>
       <summary>What is a drumline performance?</summary>
-      <p class="faq-answer">The Rhythm Messengers are a Chicago drumline — a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet.</p>
+      <p class="faq-answer">The Rhythm Messengers are a Chicago drumline: a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet.</p>
     </details>
     <details class="faq-item">
       <summary>What events do the Rhythm Messengers perform at?</summary>
@@ -560,22 +597,21 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
     </details>
     <details class="faq-item">
       <summary>How much does it cost to hire a drumline?</summary>
-      <p class="faq-answer">Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote — there's no fixed ticket price.</p>
+      <p class="faq-answer">Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote. There's no fixed ticket price.</p>
     </details>
     <details class="faq-item">
       <summary>How large is the group?</summary>
-      <p class="faq-answer">The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue — a tight ensemble for a corporate ballroom or a full battery for a festival stage.</p>
+      <p class="faq-answer">The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble for a corporate ballroom or a full battery for a festival stage.</p>
     </details>
     <details class="faq-item">
       <summary>How far in advance should we book?</summary>
-      <p class="faq-answer">The earlier the better — popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available.</p>
+      <p class="faq-answer">The earlier the better: popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available.</p>
     </details>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="reveal">
-  <p class="section-eyebrow">Get in Touch</p>
   <h2 class="section-title">LET'S MAKE SOME NOISE</h2>
   <div class="contact-grid">
     <div class="contact-info">
@@ -594,7 +630,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
       </div>
       <div class="contact-group">
         <div class="contact-group-label">Booking Agent</div>
-        <div class="contact-group-name">Dayna Malow — Live Art International</div>
+        <div class="contact-group-name">Dayna Malow, Live Art International</div>
         <div class="contact-detail">
           <strong>Email</strong>
           <a href="mailto:dayna@liveartinternational.com">dayna@liveartinternational.com</a>
@@ -628,6 +664,22 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
+// Handpicked logos to force WHITE (for dark logos that vanish under grayscale on the dark
+// strip). Add/remove a company's alt text here — applies to both marquee copies at once.
+const whiteLogos = ['Wintrust', 'NECA', 'Kygo', 'Senses Fail', 'Sonepar', 'Sura', 'Navy Pier', 'United Center', 'Northwestern Medicine', 'Millennium Park', 'Chicago Lights Festival', 'Fairmont Inn and Suites'];
+
+// Client logo marquee: apply the white treatment, and if a logo file is missing show the company name as text instead.
+document.querySelectorAll('.client-logo img').forEach(img => {
+  if (whiteLogos.includes(img.alt)) img.classList.add('white');
+  function onError() {
+    const span = document.createElement('span');
+    span.textContent = img.alt;
+    img.replaceWith(span);
+  }
+  img.addEventListener('error', onError);
+  if (img.complete && img.naturalWidth === 0) onError();
+});
+
 const hamburger = document.querySelector('.nav-hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -729,10 +781,6 @@ revealEls.forEach(el => revealObs.observe(el));
 gsap.registerPlugin(ScrollTrigger);
 
 // Hero content stagger on load
-gsap.fromTo('.hero-eyebrow',
-  { opacity: 0, y: 18 },
-  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.2 }
-);
 gsap.fromTo('.hero-headline',
   { opacity: 0, y: 28 },
   { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', delay: 0.38 }
@@ -746,12 +794,18 @@ gsap.fromTo('.hero-actions',
   { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', delay: 0.7 }
 );
 
-// Hero bg subtle parallax
+// Hero bg subtle parallax. Image is oversized (height:120%) and drifts UP so no scroll
+// position (including a mid-scroll stuck state) can reveal a gap at the top of the hero.
 gsap.to('.hero-bg img', {
-  yPercent: 18,
+  yPercent: -15,
   ease: 'none',
-  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true, invalidateOnRefresh: true }
 });
+
+// Recompute ScrollTrigger bounds once async layout settles (fonts/images reflow the hero
+// height after load; stale bounds are what left the parallax stuck partway).
+window.addEventListener('load', () => ScrollTrigger.refresh());
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
 
 // About photo scale reveal (starts slightly zoomed, settles on scroll)
 gsap.fromTo('.about-photo img',
