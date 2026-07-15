@@ -63,7 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .mobile-menu ul{list-style:none;text-align:center;padding:0}
 .mobile-menu ul li{overflow:hidden}
 .mobile-menu ul a{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,10vw,4rem);color:var(--off-white);text-decoration:none;letter-spacing:0.05em;padding:0.4rem 2rem;transition:color 0.15s cubic-bezier(0.23,1,0.32,1)}
-@media (hover: hover) and (pointer: fine){.mobile-menu ul a:hover{color:var(--red)}}
+@media (hover: hover) and (pointer: fine){.mobile-menu ul a:hover{color:var(--gold)}}
 .mobile-menu .mobile-cta{display:inline-block;margin-top:2rem;background:var(--red);color:#fff;padding:0.9rem 2.5rem;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:background 0.2s}
 .mobile-menu .mobile-cta:hover{background:var(--red-dark)}
 
@@ -72,9 +72,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:120%;object-fit:cover;object-position:center 30%}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.75) 70%, rgba(10,10,10,0.97) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 3rem 4rem}
+.hero-content{position:relative;z-index:2;padding:6rem 3rem 4rem}
 .hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,10vw,9rem);line-height:0.9;letter-spacing:0.02em;margin-bottom:1.5rem;max-width:800px;text-wrap:balance}
-.hero-headline .accent{color:var(--red)}
+.hero-headline .accent{background:var(--gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold)}
 .hero-sub{font-size:1.05rem;line-height:1.75;color:#d0c8be;max-width:500px;margin-bottom:2.5rem}
 .hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .btn-primary{background:var(--red);color:#fff;padding:0.9rem 2.25rem;border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1),box-shadow 0.2s cubic-bezier(0.23,1,0.32,1);box-shadow:0 4px 16px rgba(254,9,1,0.25)}
@@ -99,7 +99,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .slice-collapsed{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 0;transition:opacity 0.15s 0.3s}
 
 .slice-title-v{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--off-white);writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
-.slice-expanded{position:absolute;inset:0;padding:2.5rem;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.1s 0s;min-width:280px}
+.slice-expanded{position:absolute;inset:0;padding:2.5rem;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.1s 0s;min-width:280px;border-top:3px solid var(--gold)}
 .slice-expanded h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin-bottom:0.75rem;color:var(--off-white)}
 .slice-expanded p{font-size:0.85rem;line-height:1.75;color:var(--muted);margin-bottom:1.5rem}
 .slice-link{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);text-decoration:none}
@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .about-photo::after{content:'';position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,transparent,var(--black))}
 .about-content{background:var(--black);padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
 .about-content p{font-size:0.95rem;line-height:1.85;color:#b8b0a6;margin-bottom:1.25rem}
-.pull-quote-block{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0}
+.pull-quote-block{border-left:3px solid var(--gold);border-image:linear-gradient(180deg,var(--red),var(--gold)) 1;padding-left:1.5rem;margin:2rem 0}
 .pull-quote-block blockquote{font-size:1.1rem;line-height:1.65;font-style:italic;color:var(--off-white);margin-bottom:0.75rem}
 .pull-quote-block cite{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
 
@@ -131,9 +131,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .t-stars{color:var(--gold);font-size:1rem;margin-bottom:1.5rem;letter-spacing:0.15em}
 .t-body{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;color:var(--off-white);margin-bottom:1.5rem;max-width:900px;font-style:normal}
 .t-author{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red)}
-.quote-dots{display:flex;gap:0.6rem;margin-top:2.5rem}
-.quote-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);border:none;cursor:pointer;padding:0;transition:background 0.2s}
-.quote-dot.active{background:var(--red)}
+.quote-dots{display:flex;gap:0.6rem;margin-top:2.5rem;align-items:center}
+.quote-dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;padding:0;position:relative;overflow:hidden;transition:width 0.45s cubic-bezier(0.23,1,0.32,1),background 0.2s}
+.quote-dot.active{width:46px}
+/* Fill grows left→right over the slide duration; keep in sync with QUOTE_DURATION in JS. */
+.quote-dot::after{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold);border-radius:999px}
+.quote-dot.active::after{animation:quoteFill 6s linear forwards}
+@keyframes quoteFill{from{width:0}to{width:100%}}
 .quote-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* EVENTS LIST */
@@ -145,7 +149,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .event-desc{font-size:0.85rem;line-height:1.7;color:var(--muted);max-width:380px}
 @media (hover: hover) and (pointer: fine){
   .event-row:hover{padding-left:1rem}
-  .event-row:hover .event-name{color:var(--red)}
+  .event-row:hover .event-name{color:var(--gold)}
 }
 
 /* CONTACT */
@@ -175,8 +179,10 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 
 /* CLIENTS MARQUEE */
 .clients-section{padding:3rem 0;background:var(--surface);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);overflow:hidden}
-.clients-label{text-align:center;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
-.marquee-track{display:flex;overflow:hidden;white-space:nowrap}
+.clients-label{text-align:center;font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.marquee-track{display:flex;overflow:hidden;white-space:nowrap;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.marquee-track.dragging{cursor:grabbing}
+.marquee-track img{-webkit-user-drag:none;user-select:none;pointer-events:none}
 .marquee-inner{display:flex;flex-shrink:0;animation:marquee 100s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 .client-logo{display:inline-flex;align-items:center;justify-content:center;height:80px;padding:0 2.5rem}
@@ -189,7 +195,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   .nav-links{display:none}
   .nav-hamburger{display:flex}
   .mobile-menu.open{display:flex}
-  .hero-content{padding:0 1.5rem 3rem}
+  .hero-content{padding:5rem 1.5rem 3rem}
   .video-section{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
   #services{padding:3.5rem 1.5rem}
   .services-accordion{flex-direction:column;height:auto}
@@ -236,7 +242,11 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:'+';font-family:'DM Sans',sans-serif;font-size:1.6rem;font-weight:300;color:var(--red);transition:transform 0.3s cubic-bezier(0.23,1,0.32,1);flex-shrink:0;line-height:1}
 .faq-item[open] summary::after{transform:rotate(45deg)}
-@media (hover: hover) and (pointer: fine){.faq-item summary:hover{color:var(--red)}}
+/* When JS drives the animation, rotate off the .is-open class (toggled instantly on click)
+   instead of [open], which lingers until the close animation finishes. */
+.faq-list.js .faq-item[open] summary::after{transform:none}
+.faq-list.js .faq-item.is-open summary::after{transform:rotate(45deg)}
+@media (hover: hover) and (pointer: fine){.faq-item summary:hover{color:var(--gold)}}
 .faq-item summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .faq-answer{font-size:0.95rem;line-height:1.8;color:#b8b0a6;padding:0 0 1.75rem;max-width:720px}
 @media(max-width:900px){.faq-section{padding:3.5rem 1.5rem}}
@@ -543,18 +553,14 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
     <h2 class="section-title">CHICAGO'S DRUMLINE</h2>
     <p>Drawing on the city's deep musical heritage, the Rhythm Messengers are an adaptable crew of highly animated drummers and entertainers, built to bring the energy to any event, corporate, festival, or private.</p>
     <p>Working with us in the planning stage is a breeze. We're always available, full of fresh ideas, and deliver an insane performance every time.</p>
-    <div class="pull-quote-block">
-      <blockquote>"They were incredibly easy to work with, provided fresh ideas, delivered an insane performance, and were just nice people!"</blockquote>
-      <cite>Operations Director, Century 21</cite>
-    </div>
+
     <a href="#contact" class="btn-primary">Plan Your Event</a>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="reveal">
-  <h2 class="section-title">THEY BROUGHT THE HOUSE DOWN</h2>
-  <p class="section-subtitle">What our clients say</p>
+  <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
   <div class="quote-rotator" id="quoteRotator">
     <div class="quote-slide active">
       <div class="t-stars">★★★★★</div>
@@ -581,7 +587,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 
 <!-- FAQ -->
 <section id="faq" class="faq-section reveal">
-  <h2 class="section-title">DRUMLINE BOOKING, ANSWERED</h2>
+  <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
   <div class="faq-list">
     <details class="faq-item" open>
       <summary>What is a drumline performance?</summary>
@@ -695,6 +701,73 @@ document.querySelectorAll('.client-logo img').forEach(img => {
   if (img.complete && img.naturalWidth === 0) onError();
 });
 
+// Client marquee: steady leftward drift you can grab and fling — on release the throw
+// velocity coasts (momentum) and decays back into the steady drift. JS takes over from the
+// CSS animation (which stays as a no-JS fallback).
+(function draggableMarquee() {
+  const track = document.querySelector('.marquee-track');
+  const inners = track ? track.querySelectorAll('.marquee-inner') : [];
+  if (!track || inners.length < 2) return;
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  inners.forEach(el => { el.style.animation = 'none'; el.style.willChange = 'transform'; });
+
+  // Width of one copy; x wraps within it so the two copies loop seamlessly.
+  let innerW = inners[0].getBoundingClientRect().width;
+  function measure() { innerW = inners[0].getBoundingClientRect().width; }
+  window.addEventListener('load', measure);
+  window.addEventListener('resize', measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+  let x = 0;          // strip offset, normalized into (-innerW, 0]
+  let velocity = 0;   // momentum from a fling, px/sec (decays to 0)
+  const DAMP = 3.2;   // momentum decay rate (higher = settles faster)
+
+  let dragging = false, lastX = 0, lastT = 0, pointerVel = 0, prev = 0;
+
+  function frame(now) {
+    const dt = prev ? Math.min((now - prev) / 1000, 0.05) : 0;
+    prev = now;
+    if (!dragging) {
+      x += velocity * dt;                        // momentum
+      x -= (reduce ? 0 : innerW / 100) * dt;     // steady drift (matches old 100s loop)
+      velocity *= Math.exp(-dt * DAMP);
+      if (Math.abs(velocity) < 1) velocity = 0;
+    }
+    if (innerW > 0) { x = x % innerW; if (x > 0) x -= innerW; }
+    const t = 'translate3d(' + x + 'px,0,0)';
+    inners[0].style.transform = t;
+    inners[1].style.transform = t;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  track.addEventListener('pointerdown', e => {
+    dragging = true; velocity = 0; pointerVel = 0;
+    lastX = e.clientX; lastT = performance.now();
+    track.classList.add('dragging');
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const now = performance.now(), dx = e.clientX - lastX, dtp = (now - lastT) / 1000;
+    x += dx;
+    if (dtp > 0) pointerVel = dx / dtp;
+    lastX = e.clientX; lastT = now;
+  });
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    // Only fling if the pointer was still moving at release; clamp an over-hard flick.
+    velocity = (performance.now() - lastT < 80) ? pointerVel : 0;
+    velocity = Math.max(-4000, Math.min(4000, velocity));
+    if (track.hasPointerCapture && track.hasPointerCapture(e.pointerId)) track.releasePointerCapture(e.pointerId);
+  }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+})();
+
 const hamburger = document.querySelector('.nav-hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -755,22 +828,99 @@ function handleSubmit(e) {
   form.querySelectorAll('input,textarea,button').forEach(el => el.disabled = true);
 }
 
-// Quote rotator
+// Quote rotator — the active dot is a pill that fills over the slide duration, then advances.
+// Keep QUOTE_DURATION in sync with the quoteFill animation duration in CSS (6s).
+const QUOTE_DURATION = 6000;
 let currentQuote = 0;
+let quoteTimer = null;
 const slides = document.querySelectorAll('.quote-slide');
 const dots = document.querySelectorAll('.quote-dot');
+
+function startQuoteTimer() {
+  clearTimeout(quoteTimer);
+  quoteTimer = setTimeout(() => goToQuote((currentQuote + 1) % slides.length), QUOTE_DURATION);
+}
 
 function goToQuote(n) {
   slides[currentQuote].classList.remove('active');
   dots[currentQuote].classList.remove('active');
   currentQuote = n;
   slides[currentQuote].classList.add('active');
-  dots[currentQuote].classList.add('active');
+  // Force a reflow so the fill animation restarts from 0, even when re-selecting this dot.
+  const dot = dots[currentQuote];
+  void dot.offsetWidth;
+  dot.classList.add('active');
+  startQuoteTimer();
 }
 
 if (slides.length) {
-  setInterval(() => goToQuote((currentQuote + 1) % slides.length), 6000);
+  startQuoteTimer();
 }
+
+// FAQ accordions: animate the native <details> open/close by tweening its height (WAAPI).
+// Falls back to the instant native toggle when Element.animate is missing or the user
+// prefers reduced motion.
+(function animatedFAQ() {
+  const list = document.querySelector('.faq-list');
+  const items = document.querySelectorAll('.faq-item');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!list || !items.length || reduce || !Element.prototype.animate) return;
+
+  list.classList.add('js'); // hand icon rotation over to the .is-open class we control
+  const DUR = 320, EASE = 'cubic-bezier(0.23,1,0.32,1)';
+
+  items.forEach(el => {
+    const summary = el.querySelector('summary');
+    const content = el.querySelector('.faq-answer');
+    if (!summary || !content) return;
+    if (el.open) el.classList.add('is-open');
+    let animation = null, contentAnim = null, isClosing = false, isExpanding = false;
+
+    summary.addEventListener('click', e => {
+      e.preventDefault();
+      el.style.overflow = 'hidden';
+      if (isClosing || !el.open) open();
+      else if (isExpanding || el.open) shrink();
+    });
+
+    function open() {
+      el.classList.add('is-open'); // flip icon to × immediately
+      el.style.height = el.offsetHeight + 'px';
+      el.open = true;
+      requestAnimationFrame(expand);
+    }
+    function expand() {
+      isExpanding = true;
+      const start = el.offsetHeight + 'px';
+      const end = (summary.offsetHeight + content.offsetHeight) + 'px';
+      if (animation) animation.cancel();
+      animation = el.animate({ height: [start, end] }, { duration: DUR, easing: EASE });
+      if (contentAnim) contentAnim.cancel();
+      contentAnim = content.animate(
+        { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0)'] },
+        { duration: DUR, easing: EASE });
+      animation.onfinish = () => finish(true);
+      animation.oncancel = () => { isExpanding = false; };
+    }
+    function shrink() {
+      isClosing = true;
+      el.classList.remove('is-open'); // flip icon back to + immediately
+      const start = el.offsetHeight + 'px';
+      const end = summary.offsetHeight + 'px';
+      if (animation) animation.cancel();
+      if (contentAnim) contentAnim.cancel();
+      animation = el.animate({ height: [start, end] }, { duration: DUR, easing: EASE });
+      animation.onfinish = () => finish(false);
+      animation.oncancel = () => { isClosing = false; };
+    }
+    function finish(isOpen) {
+      el.open = isOpen;
+      animation = null;
+      isClosing = isExpanding = false;
+      el.style.height = el.style.overflow = '';
+    }
+  });
+})();
 
 // Nav active state on scroll
 const sections = document.querySelectorAll('section[id], div[id]');
