@@ -668,6 +668,21 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 // strip). Add/remove a company's alt text here — applies to both marquee copies at once.
 const whiteLogos = ['Wintrust', 'NECA', 'Kygo', 'Senses Fail', 'Sonepar', 'Sura', 'Navy Pier', 'United Center', 'Northwestern Medicine', 'Millennium Park', 'Chicago Lights Festival', 'Fairmont Inn and Suites'];
 
+// Randomize the client-logo order on each load. Shuffle the first marquee copy, then
+// mirror that exact order into the second copy so the seamless scroll loop still seams.
+(function shuffleLogos() {
+  const inners = document.querySelectorAll('.marquee-inner');
+  if (inners.length < 2) return;
+  const [first, second] = inners;
+  const logos = Array.from(first.children);
+  for (let i = logos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [logos[i], logos[j]] = [logos[j], logos[i]];
+  }
+  first.replaceChildren(...logos);
+  second.replaceChildren(...logos.map(el => el.cloneNode(true)));
+})();
+
 // Client logo marquee: apply the white treatment, and if a logo file is missing show the company name as text instead.
 document.querySelectorAll('.client-logo img').forEach(img => {
   if (whiteLogos.includes(img.alt)) img.classList.add('white');
