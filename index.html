@@ -203,11 +203,21 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   .video-section{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
   #services{padding:3.5rem 1.5rem}
   .services-accordion{flex-direction:column;height:auto}
-  .service-slice{min-height:auto;border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .service-slice{min-height:0;border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);display:block}
   .service-slice:last-child{border-bottom:none}
-  .slice-collapsed{display:none}
-  .slice-video{display:none}
-  .slice-expanded{position:relative;inset:auto;opacity:1;padding:2rem 1.5rem;background:none}
+  /* accordion header (repurposed collapsed label) */
+  .slice-collapsed{position:relative;inset:auto;z-index:4;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:1rem;width:100%;padding:1.4rem 1.5rem;background:var(--surface);cursor:pointer}
+  .service-slice:nth-child(even) .slice-collapsed{background:var(--surface2)}
+  .slice-title-v{writing-mode:horizontal-tb;transform:none;font-size:1.5rem;letter-spacing:0.04em}
+  .slice-collapsed::after{content:'';flex:none;width:9px;height:9px;margin-right:3px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);transition:transform 0.3s cubic-bezier(0.23,1,0.32,1)}
+  .service-slice.is-open .slice-collapsed::after{transform:rotate(-135deg)}
+  /* collapsible body — animates open/closed via max-height */
+  .slice-body{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.23,1,0.32,1)}
+  .service-slice.is-open .slice-body{max-height:500px}
+  .slice-video{display:block;position:relative;inset:auto;width:100%;height:240px;opacity:1}
+  .slice-expanded{display:flex;position:relative;inset:auto;opacity:1;width:100%;padding:1.75rem 1.5rem;border-top:none;background:var(--surface)}
+  .service-slice:nth-child(even) .slice-expanded{background:var(--surface2)}
+  .slice-expanded h3{display:none} /* header already shows the title on mobile; kept in DOM for desktop + SEO */
   .about-section{grid-template-columns:1fr}
   .about-photo{height:350px}
   .about-photo::after{display:none}
@@ -502,68 +512,78 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <h2 class="section-title">EVERY VENUE. EVERY CROWD.</h2>
   <div class="services-accordion">
     <div class="service-slice">
-      <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/corporate.webp" aria-hidden="true">
-        <source src="assets/venue/corporate.mp4" type="video/mp4">
-      </video>
       <div class="slice-collapsed">
         <span class="slice-title-v">Corporate Events</span>
       </div>
-      <div class="slice-expanded">
-        <h3>Corporate Event Drumline</h3>
-        <p>Kick off your meeting, rally, or conference with electrifying drumming that gets your team out of their chairs and keeps them engaged all day.</p>
-        <a href="#contact" class="slice-link">Book the show</a>
+      <div class="slice-body">
+        <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/corporate.webp" aria-hidden="true">
+          <source src="assets/venue/corporate.mp4" type="video/mp4">
+        </video>
+        <div class="slice-expanded">
+          <h3>Corporate Events</h3>
+          <p>Kick off your meeting, rally, or conference with electrifying drumming that gets your team out of their chairs and keeps them engaged all day.</p>
+          <a href="#contact" class="slice-link">Book the show</a>
+        </div>
       </div>
     </div>
     <div class="service-slice">
-      <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/tradeshow.webp" aria-hidden="true">
-        <source src="assets/venue/tradeshow.mp4" type="video/mp4">
-      </video>
       <div class="slice-collapsed">
         <span class="slice-title-v">Trade Shows</span>
       </div>
-      <div class="slice-expanded">
-        <h3>Trade Show Drumline</h3>
-        <p>Stop traffic at your booth with a percussion performance they won't forget. Turn foot traffic into an engaged crowd that stays.</p>
-        <a href="#contact" class="slice-link">Book the show</a>
+      <div class="slice-body">
+        <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/tradeshow.webp" aria-hidden="true">
+          <source src="assets/venue/tradeshow.mp4" type="video/mp4">
+        </video>
+        <div class="slice-expanded">
+          <h3>Trade Shows</h3>
+          <p>Stop traffic at your booth with a percussion performance they won't forget. Turn foot traffic into an engaged crowd that stays.</p>
+          <a href="#contact" class="slice-link">Book the show</a>
+        </div>
       </div>
     </div>
     <div class="service-slice">
-      <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/festival.webp" aria-hidden="true">
-        <source src="assets/venue/festival.mp4" type="video/mp4">
-      </video>
       <div class="slice-collapsed">
         <span class="slice-title-v">Festivals</span>
       </div>
-      <div class="slice-expanded">
-        <h3>Festival Drumline</h3>
-        <p>Main stage or street performance. We light the fuse. Your guests will jump, stomp, and dance away.</p>
-        <a href="#contact" class="slice-link">Book the show</a>
+      <div class="slice-body">
+        <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/festival.webp" aria-hidden="true">
+          <source src="assets/venue/festival.mp4" type="video/mp4">
+        </video>
+        <div class="slice-expanded">
+          <h3>Festivals</h3>
+          <p>Main stage or street performance. We light the fuse. Your guests will jump, stomp, and dance away.</p>
+          <a href="#contact" class="slice-link">Book the show</a>
+        </div>
       </div>
     </div>
     <div class="service-slice">
-      <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/sporting.webp" aria-hidden="true">
-        <source src="assets/venue/sporting.mp4" type="video/mp4">
-      </video>
       <div class="slice-collapsed">
         <span class="slice-title-v">Sporting Events</span>
       </div>
-      <div class="slice-expanded">
-        <h3>Sporting Event Drumline</h3>
-        <p>Fire up the arena before tip-off, kickoff, or the home stretch. We bring the energy that turns a crowd into a roar.</p>
-        <a href="#contact" class="slice-link">Book the show</a>
+      <div class="slice-body">
+        <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/sporting.webp" aria-hidden="true">
+          <source src="assets/venue/sporting.mp4" type="video/mp4">
+        </video>
+        <div class="slice-expanded">
+          <h3>Sporting Events</h3>
+          <p>Fire up the arena before tip-off, kickoff, or the home stretch. We bring the energy that turns a crowd into a roar.</p>
+          <a href="#contact" class="slice-link">Book the show</a>
+        </div>
       </div>
     </div>
     <div class="service-slice">
-      <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/custom.webp" aria-hidden="true">
-        <source src="assets/venue/custom.mp4" type="video/mp4">
-      </video>
       <div class="slice-collapsed">
         <span class="slice-title-v">Custom Performances</span>
       </div>
-      <div class="slice-expanded">
-        <h3>Custom Performances</h3>
-        <p>Multi-set pieces tailored to your event theme and brand. We transform your idea into something the crowd won't forget.</p>
-        <a href="#contact" class="slice-link">Book the show</a>
+      <div class="slice-body">
+        <video class="slice-video" muted loop playsinline preload="none" poster="assets/venue/custom.webp" aria-hidden="true">
+          <source src="assets/venue/custom.mp4" type="video/mp4">
+        </video>
+        <div class="slice-expanded">
+          <h3>Custom Performances</h3>
+          <p>Multi-set pieces tailored to your event theme and brand. We transform your idea into something the crowd won't forget.</p>
+          <a href="#contact" class="slice-link">Book the show</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1072,18 +1092,83 @@ gsap.fromTo('.event-row',
 
 // Venue slices: play the muted loop on hover (pointer devices only; skip motion on reduced-motion)
 (function () {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var slices = Array.prototype.slice.call(document.querySelectorAll('.service-slice'));
+  if (!slices.length) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.service-slice').forEach(function (slice) {
+
+  // Desktop (hover): play a slice's clip while it's hovered/expanded.
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    slices.forEach(function (slice) {
+      var vid = slice.querySelector('.slice-video');
+      if (!vid) return;
+      slice.addEventListener('mouseenter', function () {
+        if (reduce) return; // reduced-motion: static poster only, no playback
+        var p = vid.play();
+        if (p && p.catch) p.catch(function () {}); // ignore autoplay rejections
+      });
+      slice.addEventListener('mouseleave', function () { vid.pause(); });
+    });
+    return;
+  }
+
+  // Touch/mobile: collapsible accordion — tap a header to reveal that service's clip
+  // + copy; opening one closes the others (single-open). The open card's clip plays
+  // only while it's actually in view; videos are preload="none", so a clip downloads
+  // only once its service is opened. Reduced-motion / Save-Data / 2G never play — the
+  // poster shows instead — matching the hero's data-thrift.
+  var conn = navigator.connection;
+  var saveData = conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''));
+  var canPlay = !reduce && !saveData;
+  var hasIO = 'IntersectionObserver' in window;
+
+  function updatePlayback(slice) {
     var vid = slice.querySelector('.slice-video');
     if (!vid) return;
-    slice.addEventListener('mouseenter', function () {
-      if (reduce) return; // reduced-motion: static poster only, no playback
+    if (slice.classList.contains('is-open') && canPlay && slice._inView) {
+      vid.preload = 'auto';
       var p = vid.play();
-      if (p && p.catch) p.catch(function () {}); // ignore autoplay rejections
+      if (p && p.catch) p.catch(function () {}); // low-power mode etc.: poster stays
+    } else {
+      vid.pause();
+    }
+  }
+
+  function setOpen(slice, open) {
+    slice.classList.toggle('is-open', open);
+    var header = slice.querySelector('.slice-collapsed');
+    if (header) header.setAttribute('aria-expanded', open ? 'true' : 'false');
+    updatePlayback(slice);
+  }
+
+  slices.forEach(function (slice) {
+    slice._inView = !hasIO; // no IntersectionObserver: assume visible when opened by tap
+    var header = slice.querySelector('.slice-collapsed');
+    if (!header) return;
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('aria-expanded', 'false');
+    function toggle() {
+      var willOpen = !slice.classList.contains('is-open');
+      if (willOpen) slices.forEach(function (s) { if (s !== slice) setOpen(s, false); });
+      setOpen(slice, willOpen);
+    }
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); toggle(); }
     });
-    slice.addEventListener('mouseleave', function () { vid.pause(); });
   });
+
+  if (hasIO) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        e.target._inView = e.isIntersecting;
+        updatePlayback(e.target);
+      });
+    }, { threshold: 0.4 });
+    slices.forEach(function (slice) { io.observe(slice); });
+  }
+
+  setOpen(slices[0], true); // first service open by default
 })();
 
 </script>
