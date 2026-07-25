@@ -1,1 +1,9 @@
 .DS_Store
+
+# Raw source videos/stills live locally only — ship the optimized clips/webp instead.
+# (patterns match assets/ root only, NOT the assets/venue|hero|logos/ subfolders.)
+assets/*.mp4
+assets/*.mov
+assets/*.jpg
+assets/*.jpeg
+!assets/performance.mp4
