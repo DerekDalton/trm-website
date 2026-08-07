@@ -637,8 +637,8 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
   <div class="faq-list">
     <details class="faq-item" open>
-      <summary>What is a drumline performance?</summary>
-      <p class="faq-answer">The Rhythm Messengers are a Chicago drumline: a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet.</p>
+      <summary>What consists of a drumline performance?</summary>
+      <p class="faq-answer">The Rhythm Messengers can roam through a crowd, anchor to a stage, or open your event with a burst of energy that gets everyone on their feet. We can perform a number of our own tunes consisting of vibrant music and polished choreography. Playing along side other professionals or a backing track is not off the table either!</p>
     </details>
     <details class="faq-item">
       <summary>What events do the Rhythm Messengers perform at?</summary>
@@ -649,16 +649,20 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
       <p class="faq-answer">To book the Rhythm Messengers, send your event date, type, and location through the contact form below, or email rhythmmessengerschi@gmail.com. You'll get a fast reply with availability and a custom quote.</p>
     </details>
     <details class="faq-item">
+      <summary>Are the Rhythm Messengers willing to travel?</summary>
+      <p class="faq-answer">We have and will travel to numerous events and shows around the country. We are not only limited to Chicago!</p>
+    </details>
+    <details class="faq-item">
       <summary>How much does it cost to hire a drumline?</summary>
       <p class="faq-answer">Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote. There's no fixed ticket price.</p>
     </details>
     <details class="faq-item">
       <summary>How large is the group?</summary>
-      <p class="faq-answer">The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble for a corporate ballroom or a full battery for a festival stage.</p>
+      <p class="faq-answer">The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble (6-8 members) for a corporate ballroom or a full battery (14+) for a festival stage.</p>
     </details>
     <details class="faq-item">
       <summary>How far in advance should we book?</summary>
-      <p class="faq-answer">The earlier the better: popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available.</p>
+      <p class="faq-answer">The earlier the better: popular dates fill quickly. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available.</p>
     </details>
   </div>
 </section>
@@ -695,10 +699,12 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
       </div>
     </div>
     <form class="contact-form" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="text" placeholder="Event Type &amp; Date">
-      <textarea placeholder="Tell us about your event…"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="event" placeholder="Event Type &amp; Date">
+      <textarea name="message" placeholder="Tell us about your event…"></textarea>
+      <!-- Honeypot: hidden from people; bots that tick it are flagged as spam by Web3Forms -->
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <button type="submit" class="btn-primary" style="text-align:center">Send Message</button>
       <div id="form-msg" style="font-size:0.82rem;display:none;text-align:center;padding:0.5rem"></div>
     </form>
@@ -841,11 +847,19 @@ function closeMenu() {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-function handleSubmit(e) {
+// Web3Forms — contact submissions are emailed to derekmdalton94@gmail.com (the address
+// this access key is registered to). This key is safe to expose in client-side code:
+// it only ever delivers to that pre-registered address.
+const WEB3FORMS_ACCESS_KEY = '558b40da-44f0-41cf-8bbf-cd098a18add0';
+
+async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
-  const nameField = form.querySelector('input[type="text"]');
-  const emailField = form.querySelector('input[type="email"]');
+  const nameField = form.querySelector('input[name="name"]');
+  const emailField = form.querySelector('input[name="email"]');
+  const eventField = form.querySelector('input[name="event"]');
+  const messageField = form.querySelector('textarea[name="message"]');
+  const button = form.querySelector('button[type="submit"]');
   const msg = document.getElementById('form-msg');
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -869,10 +883,43 @@ function handleSubmit(e) {
 
   if (!valid) return;
 
-  msg.style.display = 'block';
-  msg.style.color = '#333';
-  msg.textContent = "Message sent. We'll be in touch soon.";
-  form.querySelectorAll('input,textarea,button').forEach(el => el.disabled = true);
+  const originalLabel = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Sending…';
+  msg.style.display = 'none';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'New booking inquiry — Rhythm Messengers',
+        from_name: 'Rhythm Messengers Website',
+        name: nameField.value.trim(),
+        email: emailField.value.trim(),
+        event: eventField.value.trim() || '(not provided)',
+        message: messageField.value.trim() || '(no message)',
+        botcheck: form.querySelector('input[name="botcheck"]').checked,
+      }),
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      msg.style.display = 'block';
+      msg.style.color = '#333';
+      msg.textContent = "Message sent. We'll be in touch soon.";
+      button.textContent = 'Sent';
+      form.querySelectorAll('input,textarea,button').forEach(el => el.disabled = true);
+    } else {
+      throw new Error(data.message || 'Submission failed');
+    }
+  } catch (err) {
+    msg.style.display = 'block';
+    msg.style.color = 'var(--red)';
+    msg.textContent = 'Something went wrong. Please email rhythmmessengerschi@gmail.com directly.';
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
 }
 
 // Quote rotator — the active dot is a pill that fills over the slide duration, then advances.
