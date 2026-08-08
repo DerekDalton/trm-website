@@ -7,3 +7,5 @@ assets/*.mov
 assets/*.jpg
 assets/*.jpeg
 !assets/performance.mp4
+# Social/link-preview image — JPG (not webp) for LinkedIn/iMessage compatibility; must ship.
+!assets/about-photo-og.jpg

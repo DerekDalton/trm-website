@@ -13,16 +13,18 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rhythmmessengers.com/">
 <meta property="og:site_name" content="Rhythm Messengers">
-<meta property="og:image" content="https://rhythmmessengers.com/assets/hero-bg.webp">
-<meta property="og:image:width" content="1094">
-<meta property="og:image:height" content="1068">
-<meta property="og:image:alt" content="Rhythm Messengers Chicago drumline performing at a corporate event">
+<meta property="og:image" content="https://rhythmmessengers.com/assets/about-photo-og.jpg">
+<meta property="og:image:width" content="1170">
+<meta property="og:image:height" content="782">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Rhythm Messengers Chicago drumline performing live with flame jets over a packed crowd">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chicago Drumline for Events | Rhythm Messengers">
 <meta name="twitter:description" content="Chicago's premier drumline entertainment group. High-energy percussion for corporate events, trade shows, festivals, and private events.">
-<meta name="twitter:image" content="https://rhythmmessengers.com/assets/hero-bg.webp">
+<meta name="twitter:image" content="https://rhythmmessengers.com/assets/about-photo-og.jpg">
+<meta name="twitter:image:alt" content="Rhythm Messengers Chicago drumline performing live with flame jets over a packed crowd">
 
 <!-- Icons -->
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -81,6 +83,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .hero-headline .accent{background:var(--gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold)}
 .hero-sub{font-size:1.05rem;line-height:1.75;color:#d0c8be;max-width:500px;margin-bottom:2.5rem}
 .hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.hero-actions .btn-primary,.hero-actions .btn-ghost{min-width:15rem;text-align:center}
+.about-content .btn-primary{align-self:flex-start}
 .btn-primary{background:var(--red);color:#fff;padding:0.9rem 2.25rem;border:none;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1),box-shadow 0.2s cubic-bezier(0.23,1,0.32,1);box-shadow:0 4px 16px rgba(254,9,1,0.25)}
 @media (hover: hover) and (pointer: fine){.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(254,9,1,0.45)}}.btn-primary:active{transform:scale(0.97);transition-duration:160ms}.btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .btn-ghost{color:var(--off-white);padding:0.9rem 2.25rem;border:1px solid rgba(255,255,255,0.3);border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s cubic-bezier(0.23,1,0.32,1),transform 0.2s cubic-bezier(0.23,1,0.32,1)}
@@ -196,12 +200,17 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 .client-logo img{max-height:64px;max-width:155px;width:auto;height:auto;object-fit:contain;display:block;filter:grayscale(100%)}
 .client-logo img.white{filter:brightness(0) invert(1)}
 @media(max-width:900px){.clients-section{padding:2rem 0}}
+/* Phones: the global clamp floors the headline at 4.5rem, too wide for a phone → it broke word-by-word.
+   Scale with the viewport (max 4rem) so it fits every phone and stacks cleanly on 3 lines. */
+@media(max-width:640px){.hero-headline{font-size:clamp(3rem,15vw,4rem)}}
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
   .mobile-menu.open{display:flex}
   .hero-content{padding:5rem 1.5rem 3rem}
+  .hero-actions{flex-direction:column;align-items:center}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost,.about-content .btn-primary{align-self:center;width:100%;max-width:22rem;min-width:0;text-align:center}
   .video-section{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2rem}
   #services{padding:3.5rem 1.5rem}
   .services-accordion{flex-direction:column;height:auto}
@@ -244,7 +253,8 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
 .mobile-menu.open ul li:nth-child(2){animation-delay:0.14s}
 .mobile-menu.open ul li:nth-child(3){animation-delay:0.2s}
 .mobile-menu.open ul li:nth-child(4){animation-delay:0.26s}
-.mobile-menu.open .mobile-cta{animation:menuIn 0.45s cubic-bezier(0.32,0.72,0,1) 0.32s both}
+.mobile-menu.open ul li:nth-child(5){animation-delay:0.32s}
+.mobile-menu.open .mobile-cta{animation:menuIn 0.45s cubic-bezier(0.32,0.72,0,1) 0.38s both}
 /* GRAIN OVERLAY */
 .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
 @media(prefers-reduced-motion:reduce){
@@ -284,7 +294,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
         "width": 1200,
         "height": 1212
       },
-      "image": "https://rhythmmessengers.com/assets/hero-bg.webp",
+      "image": "https://rhythmmessengers.com/assets/about-photo-og.jpg",
       "description": "Chicago's premier drumline entertainment group. High-energy percussion performances for corporate events, trade shows, festivals, and private events.",
       "genre": "Drumline",
       "email": "rhythmmessengerschi@gmail.com",
