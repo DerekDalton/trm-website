@@ -315,8 +315,14 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
         "addressRegion": "IL",
         "addressCountry": "US"
       },
-      "areaServed": { "@type": "City", "name": "Chicago" },
-      "sameAs": ["https://instagram.com/rhythmmessengers/"],
+      "areaServed": [
+        { "@type": "City", "name": "Chicago" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "sameAs": [
+        "https://instagram.com/rhythmmessengers/",
+        "https://www.youtube.com/@rhythmmessengers3145"
+      ],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -356,36 +362,13 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
       "@type": "FAQPage",
       "@id": "https://rhythmmessengers.com/#faq",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a drumline performance?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are a Chicago drumline: a crew of drummers and entertainers who deliver choreographed, high-energy percussion for live audiences. A performance can roam through a crowd, anchor a stage, or open your event with a burst of energy that gets everyone on their feet." }
-        },
-        {
-          "@type": "Question",
-          "name": "What events do the Rhythm Messengers perform at?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers perform at corporate events, trade shows, festivals, sporting events, and private parties throughout Chicago and the surrounding area. Every set is tailored to the venue, from intimate ballrooms to festival main stages." }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I hire a drumline in Chicago?",
-          "acceptedAnswer": { "@type": "Answer", "text": "To book the Rhythm Messengers, send your event date, type, and location through the contact form, or email rhythmmessengerschi@gmail.com. You'll get a fast reply with availability and a custom quote." }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does it cost to hire a drumline?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote. There's no fixed ticket price." }
-        },
-        {
-          "@type": "Question",
-          "name": "How large is the group?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble for a corporate ballroom or a full battery for a festival stage." }
-        },
-        {
-          "@type": "Question",
-          "name": "How far in advance should we book?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The earlier the better: popular dates fill quickly, especially in peak event season. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available." }
-        }
+        {"@type": "Question", "name": "What is a drumline performance?", "acceptedAnswer": {"@type": "Answer", "text": "The Rhythm Messengers can roam through a crowd, anchor to a stage, or open your event with a burst of energy that gets everyone on their feet. We can perform a number of our own tunes consisting of vibrant music and polished choreography. Playing alongside other professionals or a backing track is not off the table either!"}},
+        {"@type": "Question", "name": "What events do the Rhythm Messengers perform at?", "acceptedAnswer": {"@type": "Answer", "text": "The Rhythm Messengers perform at corporate events, trade shows, festivals, sporting events, and private parties throughout Chicagoland and across the country. Every set is tailored to the venue, from intimate ballrooms to festival main stages."}},
+        {"@type": "Question", "name": "How do I hire a drumline in Chicago?", "acceptedAnswer": {"@type": "Answer", "text": "To book the Rhythm Messengers, send your event date, type, and location through the contact form below, or email rhythmmessengerschi@gmail.com. You'll get a fast reply with availability and a custom quote."}},
+        {"@type": "Question", "name": "Are the Rhythm Messengers willing to travel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Rhythm Messengers are a Chicago-based drumline performing nationwide, and we've toured across the country with Banana Ball. We travel anywhere in the U.S.; travel is quoted per event."}},
+        {"@type": "Question", "name": "How much does it cost to hire a drumline?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing for the Rhythm Messengers depends on your event type, location, performance length, and group size. Reach out with your details and we'll send a custom quote. There's no fixed ticket price."}},
+        {"@type": "Question", "name": "How large is the group?", "acceptedAnswer": {"@type": "Answer", "text": "The Rhythm Messengers are an adaptable crew. The lineup scales to fit your event and venue: a tight ensemble (6-8 members) for a corporate ballroom or a full battery (14+) for a festival stage."}},
+        {"@type": "Question", "name": "How far in advance should we book?", "acceptedAnswer": {"@type": "Answer", "text": "The earlier the better: popular dates fill quickly. If your date is soon, still reach out; the Rhythm Messengers will let you know right away whether the crew is available."}}
       ]
     }
   ]
@@ -618,6 +601,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <div class="about-content">
     <h2 class="section-title">CHICAGO'S DRUMLINE</h2>
     <p>Drawing on the city's deep musical heritage, the Rhythm Messengers are an adaptable crew of highly animated drummers and entertainers, built to bring the energy to any event, corporate, festival, or private.</p>
+    <p>Chicago-based and performing nationwide, we've toured with Banana Ball and performed at Lollapalooza, for Chicago Fire FC, and alongside Two Friends.</p>
     <p>Working with us in the planning stage is a breeze. We're always available, full of fresh ideas, and deliver an insane performance every time.</p>
 
     <a href="#contact" class="btn-primary">Plan Your Event</a>
@@ -656,12 +640,12 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
   <div class="faq-list">
     <details class="faq-item" open>
-      <summary>What consists of a drumline performance?</summary>
-      <p class="faq-answer">The Rhythm Messengers can roam through a crowd, anchor to a stage, or open your event with a burst of energy that gets everyone on their feet. We can perform a number of our own tunes consisting of vibrant music and polished choreography. Playing along side other professionals or a backing track is not off the table either!</p>
+      <summary>What is a drumline performance?</summary>
+      <p class="faq-answer">The Rhythm Messengers can roam through a crowd, anchor to a stage, or open your event with a burst of energy that gets everyone on their feet. We can perform a number of our own tunes consisting of vibrant music and polished choreography. Playing alongside other professionals or a backing track is not off the table either!</p>
     </details>
     <details class="faq-item">
       <summary>What events do the Rhythm Messengers perform at?</summary>
-      <p class="faq-answer">The Rhythm Messengers perform at corporate events, trade shows, festivals, sporting events, and private parties throughout Chicago and the surrounding area. Every set is tailored to the venue, from intimate ballrooms to festival main stages.</p>
+      <p class="faq-answer">The Rhythm Messengers perform at corporate events, trade shows, festivals, sporting events, and private parties throughout Chicagoland and across the country. Every set is tailored to the venue, from intimate ballrooms to festival main stages.</p>
     </details>
     <details class="faq-item">
       <summary>How do I hire a drumline in Chicago?</summary>
@@ -669,7 +653,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
     </details>
     <details class="faq-item">
       <summary>Are the Rhythm Messengers willing to travel?</summary>
-      <p class="faq-answer">We have and will travel to numerous events and shows around the country. We are not only limited to Chicago!</p>
+      <p class="faq-answer">Yes. The Rhythm Messengers are a Chicago-based drumline performing nationwide, and we've toured across the country with Banana Ball. We travel anywhere in the U.S.; travel is quoted per event.</p>
     </details>
     <details class="faq-item">
       <summary>How much does it cost to hire a drumline?</summary>
@@ -703,6 +687,10 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
           <strong>Instagram</strong>
           <a href="https://instagram.com/rhythmmessengers/" target="_blank">@rhythmmessengers</a>
         </div>
+        <div class="contact-detail">
+          <strong>YouTube</strong>
+          <a href="https://www.youtube.com/@rhythmmessengers3145" target="_blank">Rhythm Messengers</a>
+        </div>
       </div>
       <div class="contact-group">
         <div class="contact-group-label">Booking Agent</div>
@@ -735,6 +723,7 @@ footer{background:#050505;padding:2rem 3rem;display:flex;justify-content:space-b
   <div class="footer-copy">© 2026 Rhythm Messengers &nbsp;·&nbsp; Chicago, IL</div>
   <div class="footer-social">
     <a href="https://instagram.com/rhythmmessengers/" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@rhythmmessengers3145" target="_blank">YouTube</a>
     <a href="mailto:rhythmmessengerschi@gmail.com">Email</a>
   </div>
 </footer>
