@@ -1,0 +1,17 @@
+# Cloudflare Pages redirects. Old multi-page URLs -> sections of the one-page site.
+# Unknown paths fall through to 404.html. www -> apex is a Cloudflare Redirect Rule (hostname-based, not possible here).
+/home           /           301
+/about          /#about     301
+/about-us       /#about     301
+/services       /#services  301
+/testimonials   /#testimonials 301
+/Testimonials   /#testimonials 301
+/reviews        /#testimonials 301
+/videos         /#video     301
+/video          /#video     301
+/faq            /#faq       301
+/contact        /#contact   301
+/contact-us     /#contact   301
+/book           /#contact   301
+/booking        /#contact   301
+/book-now       /#contact   301
